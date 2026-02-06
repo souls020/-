@@ -1,0 +1,92 @@
+# 控制器参数配置
+# 运动康复机器臂系统
+
+robot:
+  num_joints: 6
+  joint_names:
+    - shoulder_pan
+    - shoulder_lift
+    - elbow
+    - wrist_1
+    - wrist_2
+    - wrist_3
+
+joint_limits:
+  # 关节位置限制 (弧度)
+  min: [-3.14159, -3.14159, -3.14159, -3.14159, -3.14159, -3.14159]
+  max: [3.14159, 3.14159, 3.14159, 3.14159, 3.14159, 3.14159]
+  
+  # 速度限制 (rad/s)
+  velocity: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
+  
+  # 加速度限制 (rad/s^2)
+  acceleration: [2.0, 2.0, 2.0, 2.0, 2.0, 2.0]
+
+# PID控制增益
+pid_gains:
+  joint_0:
+    p: 1000.0
+    i: 100.0
+    d: 50.0
+  joint_1:
+    p: 1200.0
+    i: 120.0
+    d: 60.0
+  joint_2:
+    p: 1000.0
+    i: 100.0
+    d: 50.0
+  joint_3:
+    p: 800.0
+    i: 80.0
+    d: 40.0
+  joint_4:
+    p: 800.0
+    i: 80.0
+    d: 40.0
+  joint_5:
+    p: 600.0
+    i: 60.0
+    d: 30.0
+
+# 安全参数
+safety:
+  # 最大线性力 (N)
+  max_force: 30.0
+  
+  # 最大扭矩 (Nm)
+  max_torque: 8.0
+  
+  # 最大线性速度 (m/s)
+  max_linear_velocity: 0.5
+  
+  # 最大角速度 (rad/s)
+  max_angular_velocity: 1.0
+  
+  # 碰撞检测阈值 (N)
+  collision_threshold: 15.0
+  
+  # 力限制持续时间 (秒)
+  force_limit_duration: 0.3
+  
+  # 速度限制持续时间 (秒)
+  velocity_limit_duration: 0.5
+
+# 控制器设置
+controller:
+  # 控制频率 (Hz)
+  frequency: 100.0
+  
+  # 控制模式: position, velocity, torque, impedance
+  default_mode: position
+  
+  # 是否启用重力补偿
+  gravity_compensation: true
+  
+  # 是否启用摩擦补偿
+  friction_compensation: true
+
+# 阻抗控制参数
+impedance:
+  stiffness: [100.0, 100.0, 100.0, 50.0, 50.0, 50.0]
+  damping: [10.0, 10.0, 10.0, 5.0, 5.0, 5.0]

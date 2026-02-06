@@ -1,0 +1,36 @@
+# Core Dependencies
+numpy>=1.24.0
+scipy>=1.11.0
+PyYAML>=6.0
+
+# Machine Learning
+torch>=2.0.0
+scikit-learn>=1.3.0
+
+# GUI
+PyQt6>=6.5.0
+
+# Audio/Speech
+PyAudio>=0.2.14
+SpeechRecognition>=3.10.0
+pyaudio>=0.2.14
+
+# Visualization
+matplotlib>=3.7.0
+
+# Data Processing
+openpyxl>=3.1.0
+pandas>=2.0.0
+
+# Utilities
+python-dateutil>=2.8.2
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Optional: Whisper for speech recognition
+openai-whisper>=20231117
+
+# Optional: Vosk for offline speech recognition
+vosk>=0.3.45

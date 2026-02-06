@@ -1,0 +1,158 @@
+# 训练协议配置
+# 定义各种康复训练的参数
+
+# 上肢训练协议
+upper_limb:
+  shoulder_abduction:
+    name: "肩部外展"
+    description: "肩关节外展运动，用于改善肩部活动范围"
+    rom: 90.0  # 度
+    speed: 0.3  # rad/s
+    default_sets: 3
+    default_reps: 10
+    rest_time: 30  # 秒
+    modes:
+      - passive
+      - active_assisted
+      - active_resisted
+    
+  elbow_flexion:
+    name: "肘部屈伸"
+    description: "肘关节屈伸运动"
+    rom: 120.0
+    speed: 0.3
+    default_sets: 3
+    default_reps: 12
+    rest_time: 30
+    modes:
+      - passive
+      - active_assisted
+      - active_resisted
+  
+  forearm_rotation:
+    name: "前臂旋转"
+    description: "前臂旋前/旋后运动"
+    rom: 160.0
+    speed: 0.2
+    default_sets: 3
+    default_reps: 10
+    rest_time: 25
+    modes:
+      - passive
+      - active_assisted
+  
+  shoulder_rotation:
+    name: "肩部旋转"
+    description: "肩关节内外旋运动"
+    rom: 90.0
+    speed: 0.25
+    default_sets: 3
+    default_reps: 10
+    rest_time: 30
+    modes:
+      - passive
+      - active_assisted
+      - active_resisted
+
+# 下肢训练协议
+lower_limb:
+  hip_flexion:
+    name: "髋关节屈伸"
+    description: "髋关节屈伸运动"
+    rom: 90.0
+    speed: 0.3
+    default_sets: 3
+    default_reps: 10
+    rest_time: 30
+    modes:
+      - passive
+      - active_assisted
+      - active_resisted
+  
+  knee_flexion:
+    name: "膝关节屈伸"
+    description: "膝关节屈伸运动"
+    rom: 110.0
+    speed: 0.3
+    default_sets: 3
+    default_reps: 12
+    rest_time: 30
+    modes:
+      - passive
+      - active_assisted
+      - active_resisted
+  
+  ankle_flexion:
+    name: "踝关节背屈/跖屈"
+    description: "踝关节背屈和跖屈运动"
+    rom: 50.0
+    speed: 0.25
+    default_sets: 3
+    default_reps: 15
+    rest_time: 25
+    modes:
+      - passive
+      - active_assisted
+
+# 训练模式定义
+training_modes:
+  passive:
+    name: "被动训练"
+    description: "机器人完全引导患者运动"
+    assistance_level: 1.0
+    resistance_level: 0.0
+    
+  active_assisted:
+    name: "主动辅助"
+    description: "患者主动参与，机器人提供辅助"
+    assistance_level: 0.5
+    resistance_level: 0.0
+    
+  active_resisted:
+    name: "抗阻训练"
+    description: "患者对抗机器人提供的阻力"
+    assistance_level: 0.0
+    resistance_level: 0.3
+
+# 难度等级
+difficulty_levels:
+  easy:
+    rom_percentage: 60
+    speed_multiplier: 0.7
+    sets: 2
+    reps: 8
+    
+  medium:
+    rom_percentage: 80
+    speed_multiplier: 1.0
+    sets: 3
+    reps: 10
+    
+  hard:
+    rom_percentage: 100
+    speed_multiplier: 1.3
+    sets: 4
+    reps: 12
+
+# 康复阶段协议
+rehabilitation_stages:
+  early:
+    name: "早期康复（0-4周）"
+    recommended_mode: passive
+    rom_percentage: 50
+    max_speed: 0.2
+    focus: "活动范围恢复"
+    
+  intermediate:
+    name: "中期康复（4-12周）"
+    recommended_mode: active_assisted
+    rom_percentage: 75
+    max_speed: 0.3
+    focus: "力量和耐力提升"
+    
+  advanced:
+    name: "后期康复（12周+）"
+    recommended_mode: active_resisted
+    rom_percentage: 100
+    max_speed: 0.5
+    focus: "功能性训练"
